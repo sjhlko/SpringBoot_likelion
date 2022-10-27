@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class HelloController {
+    //get api
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello(){
         return "hello";
@@ -21,5 +22,5 @@ public class HelloController {
     public String getVariable2(@PathVariable String variable){
         return variable;
     }
-    
+
 }
