@@ -1,12 +1,13 @@
 package com.springboot.hello2.controller;
 
+import com.springboot.hello2.domain.dto.MemberDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/get-api")
-public class HelloController {
+public class GetController {
     //get api
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello(){
@@ -40,9 +41,9 @@ public class HelloController {
 
 
     @GetMapping("/request3")
-    public String getVariable2(){
-        return null;
-        //return String.format("%s %s %s",name,email,organization);
+    public String getRequestParam(MemberDto memberDto){
+        return memberDto.toString();
+
     }
 
 }
