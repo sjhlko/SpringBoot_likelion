@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserDao {
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
     public  UserDao(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
