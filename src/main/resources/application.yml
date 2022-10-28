@@ -8,6 +8,8 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   datasource:
+    ##기본적으로 local을 바라보게 입력함(git에 올라가기 때문)
+    ##여기로 접속하는것은 아님
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/likelion-db
     username: root
