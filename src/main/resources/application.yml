@@ -1,4 +1,8 @@
 
+logging:
+  level:
+    root: debug
+    ##기본값은 info
 spring:
   mvc:
     pathmatch:
