@@ -1,6 +1,7 @@
 package com.springboot.hello2.parser;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,13 @@ public class ReadLineContext<T> {
         );
         String str;
         while ((str = reader.readLine()) != null) {
-            result.add(parser.parse(str));
+            try{
+                result.add(parser.parse(str));
+            }catch (Exception e){
+                System.out.printf("%s :파싱에러\n",str.substring(0,50));
+
+            }
+
         }
         reader.close();
         return result;
