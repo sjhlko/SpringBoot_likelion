@@ -1,7 +1,7 @@
 
 logging:
   level:
-    root: debug
+    root: info
     ##기본값은 info
 spring:
   mvc:
