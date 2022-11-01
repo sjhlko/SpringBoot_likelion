@@ -19,7 +19,7 @@ public class HospitalDao {
                 "?,?,?," +
                 "?,?,?," +
                 "?,?,?," +
-                "?);";
+                "?)";
 
         this.jdbcTemplate.update(sql,
                 hospital.getId(), hospital.getOpenServiceName(), hospital.getOpenLocalGovernmentCode(),

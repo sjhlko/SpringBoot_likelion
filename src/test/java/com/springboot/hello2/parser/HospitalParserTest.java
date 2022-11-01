@@ -1,5 +1,6 @@
 package com.springboot.hello2.parser;
 
+import com.springboot.hello2.dao.HospitalDao;
 import com.springboot.hello2.domain.Hospital;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,18 @@ class HospitalParserTest {
     @Autowired //싱글톤을 위해 사용(계속해서 new를 해서 heap영역을 초과하는 것을 방지)
             //test에서 사용, 서비스코드는 final과 constructor를 씀->spring이 DI를 해줌
     ReadLineContext<Hospital> hospitalReadLineContext;
+
+    @Autowired //HospitalDao는 Factory도 없는데 왜될까요,,?
+            //@Component 달린 클래스는 다 bean으로 등록함
+    HospitalDao hospitalDao;
+
+    @Test
+    @DisplayName("Hospital이 insert가 잘 되는지")
+    void add(){
+        HospitalParser hp = new HospitalParser();
+        Hospital hospital = hp.parse(line1);
+        hospitalDao.add(hospital);
+    }
 
     @Test
     void name() throws IOException {
