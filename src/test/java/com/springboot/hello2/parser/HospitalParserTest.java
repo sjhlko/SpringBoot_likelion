@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest //없으면 nullpointerError 발생가능ㅅ
 //SpringBoot가 스캔을 해서 등록한 Bean을 Test에서 쓸 수 있게 해줌
 class HospitalParserTest {
 
@@ -33,6 +33,12 @@ class HospitalParserTest {
         HospitalParser hp = new HospitalParser();
         Hospital hospital = hp.parse(line1);
         hospitalDao.add(hospital);
+    }
+
+    @Test
+    @DisplayName("count 테스트")
+    void count(){
+        assertEquals(1,hospitalDao.getCount());
     }
 
     @Test
